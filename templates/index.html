@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+<p class="h2 text-center">Works log</p>
+{% for user in lst %}
+<p class="h3">Action #{{loop.index}}</p>
+<table class="table table-bordered text-center">
+    <tr class="table-secondary">
+        <td>Title of activity</td>
+        <td>Team leader</td>
+        <td>Duration</td>
+        <td>List of collaborators</td>
+        <td>Is finished</td>
+    </tr>
+    <tr>
+        <td class="table-primary">{{user[0]}}</td>
+        <td class="table-primary">{{user[1]}}</td>
+        <td class="table-primary">{{user[2]}}</td>
+        <td class="table-primary">{{user[3]}}</td>
+        {% if user[4] %}
+        <td class="table-success">Is finished</td>
+        {% else %}
+        <td class="table-danger">Is not finished</td>
+        {% endif %}
+    </tr>
+</table>
+{% endfor %}
+{% endblock %}
